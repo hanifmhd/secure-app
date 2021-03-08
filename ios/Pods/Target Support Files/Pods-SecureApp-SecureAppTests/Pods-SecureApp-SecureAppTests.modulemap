@@ -1,0 +1,6 @@
+module Pods_SecureApp_SecureAppTests {
+  umbrella header "Pods-SecureApp-SecureAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
