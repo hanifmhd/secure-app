@@ -6,32 +6,51 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import JailMonkey from 'jail-monkey';
+import React, { useEffect } from 'react';
 import {
+  Alert,
+  Platform,
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
-  Text,
   StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
-
+import RNExitApp from 'react-native-exit-app';
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
+  Header,
+  LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+  useEffect(() => {
+    if (Platform.OS == 'android' && JailMonkey.isJailBroken()) {
+      return Alert.alert(
+        'Root Device is Detected',
+        'You cannot use this app, bye 👋',
+        [
+          {
+            text: 'Ok',
+            onPress: () => RNExitApp.exitApp(),
+          },
+        ]
+      );
+    }
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+          style={styles.scrollView}
+        >
           <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
