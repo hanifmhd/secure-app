@@ -27,6 +27,8 @@ static void InitializeFlipper(UIApplication *application) {
 }
 #endif
 
+static const int kNVSBlurViewTag = 198490;//or wherever number you like
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -127,6 +129,52 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
         // or the domain was not pinned. Fall back to the default behavior
         completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
     }
+}
+
+- (void)nvs_blurPresentedView
+    {
+        if ([self.window viewWithTag:kNVSBlurViewTag]){
+            return;
+        }
+        [self.window addSubview:[self p_blurView]];
+    }
+
+    - (void)nvs_unblurPresentedView
+    {
+        [[self.window viewWithTag:kNVSBlurViewTag] removeFromSuperview];
+    }
+
+    #pragma mark - Private
+
+    - (UIView *)p_blurView
+    {
+        UIView *snapshot = [self.window snapshotViewAfterScreenUpdates:NO];
+
+        UIView *blurView = nil;
+        if ([UIVisualEffectView class]){
+            UIVisualEffectView *aView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+            blurView        = aView;
+            blurView.frame  = snapshot.bounds;
+            [snapshot addSubview:aView];
+        }
+        else {
+            UIToolbar *toolBar  = [[UIToolbar alloc] initWithFrame:snapshot.bounds];
+            toolBar.barStyle    = UIBarStyleDefault;
+            [snapshot addSubview:toolBar];
+        }
+        snapshot.tag = kNVSBlurViewTag;
+        return snapshot;
+    }
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [self nvs_blurPresentedView];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [self nvs_unblurPresentedView];
 }
 
 @end
