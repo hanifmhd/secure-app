@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "jail-monkey": "^2.3.3",
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-exit-app": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
