@@ -300,6 +300,7 @@ PODS:
     - React-jsi (= 0.63.4)
   - RNExitApp (1.1.0):
     - React
+  - TrustKit (1.6.5)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -353,6 +354,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNExitApp (from `../node_modules/react-native-exit-app`)
+  - TrustKit
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -368,6 +370,7 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - OpenSSL-Universal
+    - TrustKit
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -467,9 +470,10 @@ SPEC CHECKSUMS:
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
+  TrustKit: 073855e3adecd317417bda4ac9e9ac54a2e3b9f2
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: a0b215dc033580b9b4caac0cb939d4cdd9582586
+PODFILE CHECKSUM: b389b358b03aee9289bd8f7d5db35346828cf4b4
 
 COCOAPODS: 1.10.1

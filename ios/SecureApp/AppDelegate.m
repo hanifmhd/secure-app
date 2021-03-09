@@ -3,6 +3,9 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <TrustKit/TrustKit.h>
+#import <TrustKit/TSKPinningValidator.h>
+#import <TrustKit/TSKPinningValidatorCallback.h>
 #import "JB.h"
 
 #ifdef FB_SONARKIT_ENABLED
@@ -32,6 +35,36 @@ static void InitializeFlipper(UIApplication *application) {
   InitializeFlipper(application);
 #endif
 
+  // Override TrustKit's logger method, useful for local debugging
+  void (^loggerBlock)(NSString *) = ^void(NSString *message)
+  {
+    NSLog(@"TrustKit log: %@", message);
+  };
+  [TrustKit setLoggerBlock:loggerBlock];
+
+  NSDictionary *trustKitConfig =
+  @{
+    // Swizzling because we can't access the NSURLSession instance used in React Native's fetch method
+    kTSKSwizzleNetworkDelegates: @YES,
+    kTSKPinnedDomains: @{
+        @"medium.com" : @{
+            kTSKIncludeSubdomains: @YES, // Pin all subdomains
+            kTSKEnforcePinning: @YES, // Block connections if pinning validation failed
+            kTSKDisableDefaultReportUri: @YES,
+            kTSKPublicKeyHashes : @[
+              @"zooUcFEIAUJy6siM7WCSQgLO2jXVxmVIioJQzArfWjE=",
+              @"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB=", // Fake backup key but we need to provide 2 pins
+            ],
+        },
+    }};
+  [TrustKit initSharedInstanceWithConfiguration:trustKitConfig];
+  [TrustKit sharedInstance].pinningValidatorCallback = ^(TSKPinningValidatorResult *result, NSString *notedHostname, TKSDomainPinningPolicy *policy) {
+    if (result.finalTrustDecision == TSKTrustEvaluationFailedNoMatchingPin) {
+      NSLog(@"TrustKit certificate matching failed");
+      // Add more logging here. i.e. Sentry, BugSnag etc
+    }
+  };
+  
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"SecureApp"
@@ -55,7 +88,7 @@ static void InitializeFlipper(UIApplication *application) {
     BOOL isSecurityCheckPassed() => result of all of function above that passed security check, make sure it is implemented in Production
   */
   // Jailbreak detection, if it is true, show alert, then exit app
-  if (!isSecurityCheckPassed()) {
+  if (isSecurityCheckPassed()) {
       UIAlertController *alertController = [UIAlertController
                                             alertControllerWithTitle:@"Jailbroken Device is Detected"
         message:@"You cannot use this app, bye 👋"
