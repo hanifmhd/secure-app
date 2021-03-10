@@ -22,7 +22,7 @@ Before | After
 </table>
 
 <h4>3. SSL Pinning</h4>
-• Android
+<i>Android</i>
 <table>
   <tr>
     <td align="center"><b>Valid Certificate</b></td>
@@ -34,7 +34,7 @@ Before | After
  </tr> 
 </table>
 
-• iOS
+<i>iOS</i>
 <table>
   <tr>
     <td align="center"><b>Valid Certificate</b></td>
@@ -48,7 +48,7 @@ Before | After
 
 
 <h4>4. Background Screen Caching</h4>
-* Android
+<i>Android</i>
 <table>
   <tr>
     <td align="center"><b>Before</b></td>
@@ -60,7 +60,7 @@ Before | After
  </tr> 
 </table>
 
-* iOS
+<i>iOS</i>
 <table>
   <tr>
     <td align="center"><b>Before</b></td>
