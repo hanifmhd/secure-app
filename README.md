@@ -2,14 +2,14 @@
 example app which implements security
 
 ## List branch
-## 1. Code Obfuscation
+<h4>1. Code Obfuscation</h4>
 
 Before | After 
 :-------------------------: | :-------------------------: 
 ![Code Obfuscation - Before](https://user-images.githubusercontent.com/15220788/110627212-42e0a300-81d4-11eb-8208-e2443ac9e61c.png) | ![Code Obfuscation - After](https://user-images.githubusercontent.com/15220788/110627392-7fac9a00-81d4-11eb-9616-1e5152186388.png)
 
 
-## 2. Root/Jailbreak Detection
+<h4>2. Root/Jailbreak Detection</h4>
 <table>
   <tr>
     <td align="center"><b>Root</b></td>
@@ -21,7 +21,7 @@ Before | After
  </tr> 
 </table>
 
-## 3. SSL Pinning
+<h4>3. SSL Pinning</h4>
 * Android
 <table>
   <tr>
@@ -47,7 +47,7 @@ Before | After
 </table>
 
 
-## 4. Background Screen Caching
+<h4>4. Background Screen Caching</h4>
 * Android
 <table>
   <tr>
@@ -72,7 +72,6 @@ Before | After
  </tr> 
 </table>
 
-
-## 5. NSAllowArbitaryLoads
+<h4>2. NSAllowArbitaryLoads</h4>
 <img width="1180" alt="Screen Shot 2021-03-10 at 15 04 05" src="https://user-images.githubusercontent.com/15220788/110633803-c5b92c00-81db-11eb-82e6-0c63e50989b5.png">
 
