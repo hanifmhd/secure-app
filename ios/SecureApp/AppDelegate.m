@@ -90,7 +90,7 @@ static const int kNVSBlurViewTag = 198490;//or wherever number you like
     BOOL isSecurityCheckPassed() => result of all of function above that passed security check, make sure it is implemented in Production
   */
   // Jailbreak detection, if it is true, show alert, then exit app
-  if (isSecurityCheckPassed()) {
+  if (!isSecurityCheckPassed()) {
       UIAlertController *alertController = [UIAlertController
                                             alertControllerWithTitle:@"Jailbroken Device is Detected"
         message:@"You cannot use this app, bye 👋"
