@@ -3,8 +3,8 @@ example app which implements security
 
 ## List branch
 1. Code Obfuscation
-Before|After
-:-------------------------:|:-------------------------:
+Before | After
+:-------------------------: | :-------------------------:
 ![](https://user-images.githubusercontent.com/15220788/110627212-42e0a300-81d4-11eb-8208-e2443ac9e61c.png)  |  ![](https://user-images.githubusercontent.com/15220788/110627392-7fac9a00-81d4-11eb-9616-1e5152186388.png)
 
 2. Root Detection
