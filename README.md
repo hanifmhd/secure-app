@@ -10,9 +10,16 @@ Before | After
 
 
 2. Root/Jailbreak Detection
-Root | Jailbreak
-:-------------------------: | :-------------------------:
-![](https://user-images.githubusercontent.com/15220788/110627764-efbb2000-81d4-11eb-9ee5-a5843028f9af.gif)  |  ![](https://user-images.githubusercontent.com/15220788/110628449-97d0e900-81d5-11eb-987d-32300f74d092.gif)
+<table>
+  <tr>
+    <td align="center"><b>Root</b></td>
+    <td align="center"><b>Jailbreak</b></td>
+  <tr>
+  <tr>
+    <td> <img src="https://user-images.githubusercontent.com/15220788/110627764-efbb2000-81d4-11eb-9ee5-a5843028f9af.gif" height=640px></td>
+    <td> <img src="https://user-images.githubusercontent.com/15220788/110628449-97d0e900-81d5-11eb-987d-32300f74d092.gif" height=640px></td>
+ </tr> 
+</table>
 
 5. SSL Pinning
 6. Background Screen Caching
