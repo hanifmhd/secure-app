@@ -72,6 +72,6 @@ Before | After
  </tr> 
 </table>
 
-<h4>2. NSAllowArbitaryLoads</h4>
+<h4>5. NSAllowArbitaryLoads</h4>
 <img width="1180" alt="Screen Shot 2021-03-10 at 15 04 05" src="https://user-images.githubusercontent.com/15220788/110633803-c5b92c00-81db-11eb-82e6-0c63e50989b5.png">
 
