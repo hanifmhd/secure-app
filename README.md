@@ -22,7 +22,7 @@ Before | After
 </table>
 
 <h4>3. SSL Pinning</h4>
-* Android
+• Android
 <table>
   <tr>
     <td align="center"><b>Valid Certificate</b></td>
@@ -34,7 +34,7 @@ Before | After
  </tr> 
 </table>
 
-* iOS
+• iOS
 <table>
   <tr>
     <td align="center"><b>Valid Certificate</b></td>
